@@ -3,10 +3,9 @@ with open('c:/Users/paula/PycharmProjects/advent-of-code/day5-input.txt', 'r') a
 
 
 def bsp_to_id(bsp):
-    bsp_rev = bsp[::-1]
     seat_id = 0
     for i in range(10):
-        seat_id += (2 ** i) * (bsp_rev[i] in 'BR')
+        seat_id += (bsp[i] in 'BR') * (2 ** (9-i))
     return seat_id
 
 
