@@ -51,11 +51,21 @@ print(len(find_valid_outer_bags('shiny gold', bag_rules_dict)) - 1)
 # Part 2
 print(count_inner_bags('shiny gold', bag_rules_dict))
 
+
 # Part 2 WITH RECURSION
-def get_full_contents(bag,brd):
+def get_full_contents(bag, brd):
     immediate_contents = []
     for content in brd[bag]:
-        immediate_contents.extend([content[1]]*content[0])
-    return [get_full_contents(x,brd) for x in immediate_contents]
+        immediate_contents.extend([content[1]] * content[0])
+    return [get_full_contents(x, brd) for x in immediate_contents]
 
-print(str(get_full_contents('shiny gold',bag_rules_dict)).count('[')-1)
+
+print(str(get_full_contents('shiny gold', bag_rules_dict)).count('[') - 1)
+
+
+# Part 1 with recursion copied off Ben
+def get_containing_colours(bag):
+    containing_colours = set([x for x in bag_rules_dict.keys() if any([y[1] == bag for y in bag_rules_dict[x]])])
+    return containing_colours.union(*[get_containing_colours(cc) for cc in containing_colours])
+
+print(len(get_containing_colours('shiny gold')))
