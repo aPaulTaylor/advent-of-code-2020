@@ -50,3 +50,12 @@ print(len(find_valid_outer_bags('shiny gold', bag_rules_dict)) - 1)
 
 # Part 2
 print(count_inner_bags('shiny gold', bag_rules_dict))
+
+# Part 2 WITH RECURSION
+def get_full_contents(bag,brd):
+    immediate_contents = []
+    for content in brd[bag]:
+        immediate_contents.extend([content[1]]*content[0])
+    return [get_full_contents(x,brd) for x in immediate_contents]
+
+print(str(get_full_contents('shiny gold',bag_rules_dict)).count('[')-1)
