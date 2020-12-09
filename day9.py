@@ -21,3 +21,7 @@ for i in range(len(xmasdata)):
             print(min(invalid_sum_range) + max(invalid_sum_range))
         if cont_sum > invalid_num:
             break
+
+# one-line Part 2
+print([min(xmasdata[min(pair):max(pair)+1])+max(xmasdata[min(pair):max(pair)+1]) for pair in itertools.combinations(range(len(xmasdata)),2) if sum(xmasdata[min(pair):max(pair)+1]) == invalid_num])
+
