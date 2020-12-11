@@ -14,8 +14,8 @@ print((1+sum(j==1 for j in diffs))*(1+sum(j==3 for j in diffs)))
 def runs_of_1s(diffs):
     runlens=[]
     cur_run_len=0
-    for i in range(len(diffs)):
-        if diffs[i]==1:
+    for d in diffs:
+        if d==1:
             cur_run_len+=1
         else:
             runlens.append(cur_run_len)
