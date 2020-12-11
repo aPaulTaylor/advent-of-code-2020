@@ -45,104 +45,20 @@ print(sum(sum(s=='#' for s in row) for row in newmap))
 
 def count_visible(seatmap, x, y):
     visible_occupied = 0
-
-    # across to left
-    i=x-1
-    j=y
-    seat_seen=False
-    while(i>=0 and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i-=1
-
-    # across to right
-    i=x+1
-    j=y
-    seat_seen=False
-    while(i<len(seatmap[0]) and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i+=1
-
-    # down
-    i=x
-    j=y+1
-    seat_seen=False
-    while(j<len(seatmap) and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        j+=1
-
-    # up
-    i=x
-    j=y-1
-    seat_seen=False
-    while(j>=0 and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        j-=1
-
-    # diag to top-left
-    i = x-1
-    j = y-1
-    seat_seen=False
-    while (i >= 0 and j >= 0 and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i -= 1
-        j -= 1
-    # diag to top-right
-    i = x+1
-    j = y-1
-    seat_seen=False
-    while (i < len(seatmap[0]) and j >= 0 and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i += 1
-        j -= 1
-    # diag to bottom-left
-    i = x-1
-    j = y+1
-    seat_seen=False
-    while (i >= 0 and j < len(seatmap) and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i -= 1
-        j += 1
-    # diag to bottom-right
-    i = x+1
-    j = y+1
-    seat_seen=False
-    while (i < len(seatmap[0]) and j < len(seatmap) and not seat_seen):
-        if seatmap[j][i] == '#':
-            visible_occupied += 1
-            seat_seen=True
-        if seatmap[j][i]=='L':
-            seat_seen=True
-        i += 1
-        j += 1
-
+    for ac_inc in [0,-1,1]:
+        for dn_inc in [0,-1,1]:
+            if not(ac_inc==0 and dn_inc==0):
+                i = x + ac_inc
+                j = y + dn_inc
+                seat_seen = False
+                while (0<=i<len(seatmap[0]) and 0<=j<len(seatmap) and not seat_seen):
+                    if seatmap[j][i] == '#':
+                        visible_occupied += 1
+                        seat_seen = True
+                    if seatmap[j][i] == 'L':
+                        seat_seen = True
+                    i += ac_inc
+                    j += dn_inc
     return [0, visible_occupied]
 
 
