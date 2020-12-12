@@ -1,8 +1,3 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
-    dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
-
-ship_pos = {'E': 0, 'N': 0, 'dir': 90}
-
 DIR_LOOKUPS = {
     'N': {'N': 1, 'E': 0},
     'S': {'N': -1, 'E': 0},
@@ -22,19 +17,6 @@ def update_ship_pos(ship_pos, dir):
         ship_pos['N'] += dir[1] * DIR_LOOKUPS[dir[0]]['N']
         ship_pos['E'] += dir[1] * DIR_LOOKUPS[dir[0]]['E']
 
-
-for d in dirs:
-    update_ship_pos(ship_pos, d)
-
-print(abs(ship_pos['E']) + abs(ship_pos['N']))
-
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
-    dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
-
-ship_pos = {'E': 0, 'N': 0, 'dir': 0}
-waypoint = {'E': 10, 'N': 1}
-
-
 def update_ship_and_waypoint(ship_pos, waypoint, dir):
     if dir[0] in 'NSEW':
         waypoint['N'] += dir[1] * DIR_LOOKUPS[dir[0]]['N']
@@ -50,7 +32,19 @@ def update_ship_and_waypoint(ship_pos, waypoint, dir):
         ship_pos['E'] += waypoint['E'] * dir[1]
 
 
-for d in dirs:
-    update_ship_and_waypoint(ship_pos, waypoint, d)
+# Part 1
+with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
+    dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
 
+ship_pos = {'E': 0, 'N': 0, 'dir': 90}
+[update_ship_pos(ship_pos, d) for d in dirs]
+print(abs(ship_pos['E']) + abs(ship_pos['N']))
+
+# Part 2
+with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
+    dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
+
+ship_pos = {'E': 0, 'N': 0, 'dir': 0}
+waypoint = {'E': 10, 'N': 1}
+[update_ship_and_waypoint(ship_pos, waypoint, d) for d in dirs]
 print(abs(ship_pos['E']) + abs(ship_pos['N']))
