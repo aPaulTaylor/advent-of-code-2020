@@ -24,11 +24,9 @@ def find_earliest_time(buses, rel_times):
     if len(buses) == 1:
         return rel_times[0]
     time=rel_times[0] - buses[0]
-    sol_found=False
-    while not sol_found:
+    while True:
         time += buses[0]
         if time % buses[1] == rel_times[1]:
-            sol_found=True
             return find_earliest_time([buses[0]*buses[1]]+buses[2:], [time]+rel_times[2:])
 
 print(find_earliest_time(buses, [-rel_times[i] % buses[i] for i in range(len(buses))]))
