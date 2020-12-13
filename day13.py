@@ -3,7 +3,7 @@ with open('c:/Users/paula/PycharmProjects/advent-of-code/day13-input.txt', 'r') 
 
 start_time = int(busnotes[0].strip())
 buses = [int(x) for x in busnotes[1].split(',') if not x=='x']
-rel_times = [i for i,x in enumerate(busnotes[1].split(',')) if not x=='x']
+times = [i for i,x in enumerate(busnotes[1].split(',')) if not x=='x']
 
 # Part 1
 timefound=False
@@ -24,4 +24,4 @@ def find_earliest_time(buses, rel_times):
         if time % buses[1] == rel_times[1]:
             return find_earliest_time([buses[0]*buses[1]]+buses[2:], [time]+rel_times[2:])
 
-print(find_earliest_time(buses, [-rel_times[i] % buses[i] for i in range(len(buses))]))
+print(find_earliest_time(buses, [-times[i] % buses[i] for i in range(len(buses))]))
