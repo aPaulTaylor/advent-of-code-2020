@@ -26,11 +26,11 @@ def apply_mask_to_address(address, mask):
     masked_address=''
     for i in range(len(mask)):
         if mask[i]=='0':
-            masked_address = masked_address + address[i]
+            masked_address += address[i]
         if mask[i]=='1':
-            masked_address = masked_address + '1'
+            masked_address += '1'
         if mask[i]=='X':
-            masked_address = masked_address + 'X'
+            masked_address += 'X'
     num_Xs = masked_address.count('X')
     X_replacements = [bin(i)[2:] for i in range(2**num_Xs)]
     X_replacements = ['0'*(num_Xs - len(rep)) + rep for rep in X_replacements]
@@ -40,10 +40,10 @@ def apply_mask_to_address(address, mask):
         repl_ind=0
         for c in masked_address:
             if c=='X':
-                new_address = new_address + repl[repl_ind]
+                new_address += repl[repl_ind]
                 repl_ind+=1
             else:
-                new_address = new_address + c
+                new_address += c
         addresses.append(int(new_address,2))
     return addresses
 
