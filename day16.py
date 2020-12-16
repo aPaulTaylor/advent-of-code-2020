@@ -48,8 +48,6 @@ def determine_fields(rules_dict, vals_per_position):
 
     fixed_rules = []
     while max(len(x) for x in position_viable_rules) > 1:
-        # print([len(x) for x in position_viable_rules])
-        # print(fixed_rules)
         onerule_ind = [i for i in range(20) if len(position_viable_rules[i]) == 1 and i not in fixed_rules][0]
         onerule_rule = position_viable_rules[onerule_ind][0]
         fixed_rules.append(onerule_ind)
