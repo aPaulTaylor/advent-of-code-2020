@@ -42,16 +42,13 @@ def sum_vol(vol):
     return sum(sum(vol[x][y]) for y in range(len(vol[0])) for x in range(len(vol)))
 
 
-print(sum_vol(layers))
-
 iter_vol = copy.deepcopy(layers)
-
 for i in range(6):
     iter_vol = iterate_volume(iter_vol)
-    print(sum_vol(iter_vol))
+print(sum_vol(iter_vol))
 
 # Part 2
-hypervol = [[[[0]*20]*20]*13]*6 + [layers] + [[[[0]*20]*20]*13]*6
+hypervol = [[[[0] * 20] * 20] * 13] * 6 + [layers] + [[[[0] * 20] * 20] * 13] * 6
 
 
 def iterate_hypervolume(vol):
@@ -64,10 +61,11 @@ def iterate_hypervolume(vol):
             newlayer = []
             for k in range(len(vol[0][0])):
                 knbs = [knb for knb in [k - 1, k, k + 1] if 0 <= knb < len(vol[0][0])]
-                newrow=[]
+                newrow = []
                 for h in range(len(vol[0][0][0])):
                     hnbs = [hnb for hnb in [h - 1, h, h + 1] if 0 <= hnb < len(vol[0][0][0])]
-                    nbs_sum = sum(sum(sum(sum(vol[x][y][z][w] for w in hnbs) for z in knbs) for y in jnbs) for x in inbs)
+                    nbs_sum = sum(
+                        sum(sum(sum(vol[x][y][z][w] for w in hnbs) for z in knbs) for y in jnbs) for x in inbs)
                     if (vol[i][j][k][h] == 0 and nbs_sum == 3) or (vol[i][j][k][h] == 1 and 3 <= nbs_sum <= 4):
                         newrow.append(1)
                     else:
@@ -79,15 +77,15 @@ def iterate_hypervolume(vol):
 
 
 def sum_hypervol(hvol):
-    total=0
+    total = 0
     for cube in hvol:
         for lr in cube:
             for row in lr:
-                total+=sum(row)
+                total += sum(row)
     return total
 
+
 iter_hvol = copy.deepcopy(hypervol)
-print(sum_hypervol(iter_hvol))
 for i in range(6):
     iter_hvol = iterate_hypervolume(iter_hvol)
-    print(sum_hypervol(iter_hvol))
+print(sum_hypervol(iter_hvol))
