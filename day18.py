@@ -19,9 +19,7 @@ def parse_sum(sum_str,main_op):
             ops = plus_re.findall(sum_str) + times_re.findall(sum_str)
         else:
             ops = [' '.join(sum_str.split(' ')[0:3])]
-        #print(ops)
         op_split=ops[0].split(' ')
-        #print(op_split)
         op_res = str(operators[op_split[1]](int(op_split[0]),int(op_split[2])))
         return parse_sum(sum_str.replace(ops[0],op_res,1),main_op)
 
