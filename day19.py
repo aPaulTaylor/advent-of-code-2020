@@ -1,3 +1,5 @@
+import itertools
+
 with open('c:/Users/paula/PycharmProjects/advent-of-code/day19-input.txt', 'r') as f:
     input = [x.strip() for x in f.readlines()]
 
@@ -23,11 +25,7 @@ def resolve_rule(rule):
         option_resolutions = ['']
         for term in rule_option:
             term_words = resolved_rules[term]
-            new_option_resolutions = []
-            for opt in option_resolutions:
-                for tw in term_words:
-                    new_option_resolutions.append(opt + tw)
-            option_resolutions = new_option_resolutions
+            option_resolutions = [''.join(p) for p in itertools.product(option_resolutions, term_words)]
         resolved_rule.extend(option_resolutions)
     return resolved_rule
 
