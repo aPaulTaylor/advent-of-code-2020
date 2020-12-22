@@ -67,6 +67,7 @@ while len(grid_tiles) < 144:
 # Part 1
 print(tilesraw[grid_tiles[0]]['id']*tilesraw[grid_tiles[11]]['id']*tilesraw[grid_tiles[132]]['id']*tilesraw[grid_tiles[143]]['id'])
 
+# Tile transform function courtesy of Katie
 def tile_transform(tile_grid,orientation): # should be a 10 by 10 grid, fed in as a list of 10 strings of length 10
     transformed_grid = copy.deepcopy(tile_grid)
     rows = len(transformed_grid)
