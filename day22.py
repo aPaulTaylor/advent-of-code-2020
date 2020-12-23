@@ -52,7 +52,7 @@ def play_recursive_game(p1_nums,p2_nums):
             p2_card = p2_nums.pop()
             if (p1_card <= len(p1_nums) and p2_card <= len(p2_nums)):
                 #print('subgame')
-                subgame_winner = play_recursive_game(p1_nums[:],p2_nums[:])[0]
+                subgame_winner = play_recursive_game(p1_nums[len(p1_nums)-p1_card:],p2_nums[len(p2_nums)-p2_card:])[0]
                 if subgame_winner == 1:
                     p1_nums = [p2_card,p1_card] + p1_nums
                 else:
@@ -67,7 +67,10 @@ def play_recursive_game(p1_nums,p2_nums):
 
 results=play_recursive_game([19,43],[14,29,2])
 print(results)
+print([sum((i+1)*n for i,n in enumerate(results[1])),sum((i+1)*n for i,n in enumerate(results[2]))])
 results=play_recursive_game([1,3,6,2,9],[10,7,4,8,5])
 print(results)
+print([sum((i+1)*n for i,n in enumerate(results[1])),sum((i+1)*n for i,n in enumerate(results[2]))])
 results=play_recursive_game(p1,p2)
 print(results)
+print([sum((i+1)*n for i,n in enumerate(results[1])),sum((i+1)*n for i,n in enumerate(results[2]))])
