@@ -63,7 +63,7 @@ def play_recursive_game(p1_nums,p2_nums):
                     p1_nums = [p2_card,p1_card] + p1_nums
                 else:
                     p2_nums = [p1_card, p2_card] + p2_nums
-    return [winner, p1_nums, p2_nums, prev_round_states]
+    return [winner, p1_nums, p2_nums]
 
 results=play_recursive_game([19,43],[14,29,2])
 print(results)
