@@ -44,30 +44,36 @@ for i in range(100):
 
 print(cups)
 
+from collections import deque
 
 cups = [3,6,4,2,9,7,5,8,1] + list(range(10,1000001))
 orig_cups = cups[:]
-cur_cup_ind=0
 num_cups=1000000
-i=0
-while cups!=orig_cups or i==0:
-    if i%100==0:
-        print(i)
-    i+=1
-    cur_cup = cups[cur_cup_ind]
-    inds_to_remove = [(cur_cup_ind + j) % num_cups for j in [1,2,3] ]
-    picked_up_cups=[cups[j] for j in inds_to_remove]
-    cups = [cups[j] for j in range(num_cups) if j not in inds_to_remove]
-    dest_cup = cur_cup-1
-    if dest_cup == 0:
-        dest_cup = num_cups
-    while dest_cup not in cups:
-        dest_cup -= 1
-        if dest_cup == 0:
-            dest_cup = num_cups
-    dest_cups_ind = cups.index(dest_cup)+1
-    cups = cups[:dest_cups_ind]+picked_up_cups+cups[dest_cups_ind:]
-    cur_cup_ind = cups.index(cur_cup) + 1
-    if cur_cup_ind == num_cups:
-        cur_cup_ind = 0
-    i+=1
+cup_deque = deque(cups,num_cups)
+insertions = {}
+for i in range(10000000):
+    cur_cup = cup_deque.popleft()
+    if cur_cup in insertions.keys():
+        for cup_to_add in insertions[cur_cup][::-1]:
+            cup_deque.appendleft(cup_to_add)
+        del insertions[cur_cup]
+    removed_cups=[]
+    for j in range(3):
+        rem_cup = cup_deque.popleft()
+        if rem_cup in insertions.keys():
+            for cup_to_add in insertions[rem_cup][::-1]:
+                cup_deque.appendleft(cup_to_add)
+            del insertions[rem_cup]
+        removed_cups.append(rem_cup)
+    target_cup = cur_cup - 1
+    while target_cup in removed_cups:
+        target_cup -= 1
+    if target_cup == 0:
+        target_cup = num_cups
+    insertions[target_cup] = removed_cups
+    cup_deque.append(cur_cup)
+
+final_cup_order = list(cup_deque)
+cup_1_index = final_cup_order.index(1)
+print(final_cup_order[cup_1_index+1]*final_cup_order[cup_1_index+2])
+# check manually that nothing nearby is in the insertions dictionary
