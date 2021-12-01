@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day6-input.txt', 'r') as f:
+with open('/aoc-2020/day6-input.txt', 'r') as f:
     resps_list = [x.strip().split('\n') for x in f.read().split('\n\n')]
 
 # Part 1

@@ -1,6 +1,6 @@
 import itertools
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day9-input.txt', 'r') as f:
+with open('/aoc-2020/day9-input.txt', 'r') as f:
     xmasdata = [int(x) for x in f.readlines()]
 
 # Part 1

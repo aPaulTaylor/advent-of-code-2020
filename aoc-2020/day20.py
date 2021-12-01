@@ -1,6 +1,6 @@
 import copy
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day20-input.txt', 'r') as f:
+with open('/aoc-2020/day20-input.txt', 'r') as f:
     input = f.read()
 
 tilesraw = [x.split('\n') for x in input.split('\n\n')][:-1]

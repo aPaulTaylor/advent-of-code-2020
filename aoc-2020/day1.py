@@ -1,6 +1,6 @@
 
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day1-input.txt', 'r') as f:
+with open('aoc-2020/day1-input.txt', 'r') as f:
     input = f.readlines()
 
 input = [int(x) for x in input]

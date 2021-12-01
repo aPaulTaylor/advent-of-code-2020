@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day4-input.txt', 'r') as f:
+with open('/aoc-2020/day4-input.txt', 'r') as f:
     puzzle_input = f.readlines()
 
 puzzle_input.append('\n')

@@ -1,6 +1,6 @@
 import copy
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day17-input.txt', 'r') as f:
+with open('/aoc-2020/day17-input.txt', 'r') as f:
     input = f.readlines()
 
 layers = []

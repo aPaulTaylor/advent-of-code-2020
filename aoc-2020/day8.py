@@ -1,6 +1,6 @@
 import copy
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day8-input.txt', 'r') as f:
+with open('/aoc-2020/day8-input.txt', 'r') as f:
     program = f.readlines()
 
 program = [[x.split(' ')[0], int(x.split(' ')[1])] for x in program]

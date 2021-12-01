@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day16-input.txt', 'r') as f:
+with open('/aoc-2020/day16-input.txt', 'r') as f:
     tickets = [l.strip() for l in f.readlines()]
 
 rules = tickets[:20]

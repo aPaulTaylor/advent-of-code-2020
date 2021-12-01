@@ -1,6 +1,6 @@
 import re
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day18-input.txt', 'r') as f:
+with open('/aoc-2020/day18-input.txt', 'r') as f:
     sums = [x.strip() for x in  f.readlines()]
 
 operators = {'+': lambda a, b: a + b, '*': lambda a, b: a * b}

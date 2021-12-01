@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day13-input.txt', 'r') as f:
+with open('/aoc-2020/day13-input.txt', 'r') as f:
     busnotes = f.readlines()
 
 start_time = int(busnotes[0].strip())

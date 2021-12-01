@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day22-input.txt', 'r') as f:
+with open('/aoc-2020/day22-input.txt', 'r') as f:
     input = f.read()
 
 p1 = [int(n) for n in input.split('\n\n')[0].split('\n')[1:]][::-1]

@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day14-input.txt', 'r') as f:
+with open('/aoc-2020/day14-input.txt', 'r') as f:
     program = [ x[:-1].split(' = ') for x in f.readlines()]
 
 ## Part 1

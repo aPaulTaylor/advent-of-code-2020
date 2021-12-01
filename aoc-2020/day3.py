@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day3-input.txt', 'r') as f:
+with open('/aoc-2020/day3-input.txt', 'r') as f:
     puzzle_input = f.readlines()
 
 puzzle_input = [x.strip() for x in puzzle_input]

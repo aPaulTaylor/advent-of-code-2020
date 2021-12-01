@@ -33,7 +33,7 @@ def update_ship_and_waypoint(ship_pos, waypoint, dir):
 
 
 # Part 1
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
+with open('/aoc-2020/day12-input.txt', 'r') as f:
     dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
 
 ship_pos = {'E': 0, 'N': 0, 'dir': 90}
@@ -41,7 +41,7 @@ ship_pos = {'E': 0, 'N': 0, 'dir': 90}
 print(abs(ship_pos['E']) + abs(ship_pos['N']))
 
 # Part 2
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day12-input.txt', 'r') as f:
+with open('/aoc-2020/day12-input.txt', 'r') as f:
     dirs = [[x.strip()[0], int(x.strip()[1:])] for x in f.readlines()]
 
 ship_pos = {'E': 0, 'N': 0, 'dir': 0}

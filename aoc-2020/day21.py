@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day21-input.txt', 'r') as f:
+with open('/aoc-2020/day21-input.txt', 'r') as f:
     input = f.readlines()
 
 ingredients = [x.split('(')[0].strip().split(' ') for x in input]

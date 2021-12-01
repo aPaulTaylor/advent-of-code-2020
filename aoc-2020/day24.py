@@ -1,6 +1,6 @@
 import copy
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day24-input.txt', 'r') as f:
+with open('/aoc-2020/day24-input.txt', 'r') as f:
     paths = [x.strip() for x in f.readlines()]
 
 dir_coord_changes = {

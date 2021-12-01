@@ -1,6 +1,6 @@
 import itertools
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day19-input.txt', 'r') as f:
+with open('/aoc-2020/day19-input.txt', 'r') as f:
     input = [x.strip() for x in f.readlines()]
 
 rules = input[:139]

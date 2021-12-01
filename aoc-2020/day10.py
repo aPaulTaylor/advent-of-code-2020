@@ -1,6 +1,6 @@
 import itertools
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day10-input.txt', 'r') as f:
+with open('/aoc-2020/day10-input.txt', 'r') as f:
     joltages = [int(x) for x in f.readlines()]
 
 joltages.sort()

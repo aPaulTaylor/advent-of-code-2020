@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day11-input.txt', 'r') as f:
+with open('/aoc-2020/day11-input.txt', 'r') as f:
     seatmap = [x.strip() for x in f.readlines()]
 
 
@@ -62,7 +62,7 @@ def count_visible(seatmap, x, y):
     return [0, visible_occupied]
 
 
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day11-input.txt', 'r') as f:
+with open('/aoc-2020/day11-input.txt', 'r') as f:
     seatmap = [x.strip() for x in f.readlines()]
 
 newmap = iterate_seatmap(seatmap, count_visible, 5)

@@ -1,4 +1,4 @@
-with open('c:/Users/paula/PycharmProjects/advent-of-code/day7-input.txt', 'r') as f:
+with open('/aoc-2020/day7-input.txt', 'r') as f:
     bag_rules = f.readlines()
 
 bag_rules = [x.strip() for x in bag_rules]
