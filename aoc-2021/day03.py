@@ -2,8 +2,8 @@ with open('input/day03-input.txt', 'r') as f:
     input = [x.strip() for x in f.readlines()]
 
 ## Part 1
-onemajorities = [ sum(num[i]=='1' for num in input)*2>len(input) for i in range(12) ]
-gamma = sum(2**(11-i) for i in range(12) if onemajorities[i])
+majorities = [ '1' if sum(num[i]=='1' for num in input)*2>len(input) else '0' for i in range(12) ]
+gamma = int(''.join(majorities),2)
 print(gamma*(2**12 - gamma - 1))
 
 ## Part 2
@@ -19,5 +19,5 @@ for criteria in ['oxygen','CO2']:
     while len(diag)>1:
         diag=reduce_diagnostic(diag,d,criteria)
         d+=1
-    prod *= sum(int(diag[0][i])*(2**(11-i)) for i in range(12))
+    prod *= int(diag[0], 2)
 print(prod)
