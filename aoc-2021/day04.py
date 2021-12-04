@@ -23,30 +23,23 @@ def board_wins(board):
         return True
     return False
 
-# Part 1
-winner=False
-number_list = numbers[::-1]
-while not winner:
-    call_num = number_list.pop()
-    boards = [mark_number(b, call_num) for b in boards]
-    win_list = [board_wins(b) for b in boards]
-    winner = any(win_list)
+def play_bingo(boards,number_list,criterion):
+    winner=False
+    while not winner:
+        call_num = number_list.pop()
+        boards = [mark_number(b, call_num) for b in boards]
+        win_list = [board_wins(b) for b in boards]
+        if criterion=='first':
+            winner = any(win_list)
+            if winner:
+                win_num = win_list.index(True)
+        else:
+            if len(win_list) - sum(win_list) == 1:
+                win_num = win_list.index(False)
+            winner = all(win_list)
+    winning_board=boards[win_num]
+    board_sum = sum(sum(winning_board[0][i][j]*(1-winning_board[1][i][j]) for j in range(5)) for i in range(5))
+    return(board_sum * call_num)
 
-winning_board=boards[win_list.index(True)]
-board_sum = sum(sum(winning_board[0][i][j]*(1-winning_board[1][i][j]) for j in range(5)) for i in range(5))
-print(board_sum * call_num)
-
-# Part 2
-winner=False
-number_list = numbers[::-1]
-while not winner:
-    call_num = number_list.pop()
-    boards = [mark_number(b, call_num) for b in boards]
-    win_list = [board_wins(b) for b in boards]
-    if len(win_list) - sum(win_list) == 1:
-        last_winner = win_list.index(False)
-    winner = all(win_list)
-
-winning_board=boards[last_winner]
-board_sum = sum(sum(winning_board[0][i][j]*(1-winning_board[1][i][j]) for j in range(5)) for i in range(5))
-print(board_sum * call_num)
+print(play_bingo(boards,numbers[::-1],'first')) # Part 1
+print(play_bingo(boards,numbers[::-1],'last')) # Part 2
