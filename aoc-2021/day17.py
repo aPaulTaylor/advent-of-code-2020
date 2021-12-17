@@ -3,7 +3,7 @@
 def test_shot(v):
     pos = [0, 0]
     while True:
-        pos = [pos[0] + v[0], pos[1] + v[1]]
+        pos = [sum(x) for x in list(zip(pos,v))]
         if pos[0] > 238 or pos[1] < -86:
             return False
         if pos[0] >= 209 and pos[1] <= -59:
