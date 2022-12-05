@@ -2,9 +2,7 @@ with open('input/day05-input.txt', 'r') as f:
     input = [x.strip() for x in f.readlines()]
 
 stacks_input=[x[1::4] for x in input[:8]]
-
-stacks = [[x[i] for x in stacks_input][::-1] for i in range(9)]
-stacks = [[x for x in st if x!=' '] for st in stacks]
+stacks = [[x for x in st[::-1] if x!=' '] for st in list(zip(*stacks_input))]
 
 moves = input[10:]
 moves = [list(map(int, x.split(' ')[1::2])) for x in moves]
