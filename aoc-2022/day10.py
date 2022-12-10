@@ -3,10 +3,9 @@ with open('input/day10-input.txt', 'r') as f:
 
 cur_cycle=0
 X=1
-display=''
 X_sum=0
 
-display = display + ('█' if abs(X-(cur_cycle % 40)) < 2 else ' ')
+display = '█' if abs(X-(cur_cycle % 40)) < 2 else ' '
 for instr in program:
     cur_cycle+=1
     X_sum+= (X*cur_cycle) if cur_cycle in [20,60,100,140,180,220] else 0
