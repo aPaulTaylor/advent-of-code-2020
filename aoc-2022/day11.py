@@ -3,10 +3,7 @@ with open('input/day11-input.txt', 'r') as f:
 
 items=[[int(x) for x in l.split(':')[1].split(',')] for l in monkey_behaviour[1::7]]
 div_tests = [int(x.split(' ')[-1]) for x in monkey_behaviour[3::7]]
-destinations=[
-    [int(x.split(' ')[-1]) for x in monkey_behaviour[5::7]],
-    [int(x.split(' ')[-1]) for x in monkey_behaviour[4::7]]
-]
+destinations=[[int(x.split(' ')[-1]) for x in monkey_behaviour[l::7]] for l in [5,4]]
 munctions=[lambda x: x*17, lambda x: x+1, lambda x: x+3, lambda x: x+5, lambda x: x*x, lambda x: x+2, lambda x: x+4, lambda x: x*19]
 inspect_counts=[0]*8
 
