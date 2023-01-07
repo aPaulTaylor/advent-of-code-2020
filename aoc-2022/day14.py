@@ -35,14 +35,14 @@ def drop_sand(sand_coords,rock_coords):
         if not moved:
             return sand_pos, 'rest'
         else:
-            if sand_pos[1]>max_rock_y:
-                return sand_pos, 'abyss'
+            if sand_pos[1]==max_rock_y+1:
+                return sand_pos, 'rest'
 
 done=False
 while not done:
     new_sand_pos, status = drop_sand(sand_coords,rock_coords)
-    if status=='abyss':
-        print(len(sand_coords))
+    if new_sand_pos==(500,0):
+        print(len(sand_coords)+1)
         done=True
     else:
         sand_coords.add(new_sand_pos)
