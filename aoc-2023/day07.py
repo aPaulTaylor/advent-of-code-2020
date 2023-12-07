@@ -9,7 +9,7 @@ for i in range(2,10):
 
 def score_hand(hand):
     dist_ranks=len(set(hand))
-    num_pairs=sum(1 for r in RANK_SCORES.keys() if sum(1 for c in hand if c==r)==2 )
+    num_pairs=sum(1 for r in RANK_SCORES.keys() if hand.count(r)==2 )
     if dist_ranks==1:
         hand_score=70000000000 #5ofakind
     if dist_ranks==2:
@@ -44,7 +44,7 @@ def score_hand_j(hand_in):
     for jrank in 'AKQT98765432':
         hand=hand_in.replace('J',jrank)
         dist_ranks=len(set(hand))
-        num_pairs=sum(1 for r in RANK_SCORES.keys() if sum(1 for c in hand if c==r)==2 )
+        num_pairs=sum(1 for r in RANK_SCORES.keys() if hand.count(r)==2 )
         if dist_ranks==1:
             hand_score=70000000000 #5ofakind
         if dist_ranks==2:
